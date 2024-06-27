@@ -5,14 +5,11 @@ function loadScene3() {
         .attr("width", 800)
         .attr("height", 600);
 
-    const data = [
-        { ageGroup: "0-17 years", deaths: 1000 },
-        { ageGroup: "18-44 years", deaths: 100000 },
-        { ageGroup: "45-64 years", deaths: 400000 },
-        { ageGroup: "65-74 years", deaths: 300000 },
-        { ageGroup: "75-84 years", deaths: 500000 },
-        { ageGroup: "85 years and over", deaths: 700000 }
-    ];
+    // Filter the data for the necessary fields
+    const data = window.covidData.map(d => ({
+        ageGroup: d["Age group"],
+        deaths: +d["COVID-19 Deaths"]
+    }));
 
     console.log('Scene 3 Data:', data);
 

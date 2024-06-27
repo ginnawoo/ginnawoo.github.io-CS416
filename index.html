@@ -17,12 +17,18 @@
         <button id="nextButton">Next</button>
     </div>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script>
-        console.log('D3.js loaded');
-    </script>
     <script src="js/main.js"></script>
+    <script src="js/scene1.js"></script>
+    <script src="js/scene2.js"></script>
+    <script src="js/scene3.js"></script>
     <script>
-        console.log('Main.js loaded');
+        d3.csv("data/Provisional_COVID-19_Deaths_by_Race_and_Hispanic_Origin__and_Age_20240524.csv").then(data => {
+            window.covidData = data;
+            console.log('CSV Data loaded', data);
+            loadScene(currentScene);
+        }).catch(error => {
+            console.error('Error loading CSV data:', error);
+        });
     </script>
 </body>
 

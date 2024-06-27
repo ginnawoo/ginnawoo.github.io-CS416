@@ -5,13 +5,11 @@ function loadScene2() {
         .attr("width", 800)
         .attr("height", 600);
 
-    const data = [
-        { race: "White", deaths: 800000 },
-        { race: "Black", deaths: 200000 },
-        { race: "Hispanic", deaths: 150000 },
-        { race: "Asian", deaths: 100000 },
-        { race: "Other", deaths: 50000 }
-    ];
+    // Filter the data for the necessary fields
+    const data = window.covidData.map(d => ({
+        race: d["Race and Hispanic Origin Group"],
+        deaths: +d["COVID-19 Deaths"]
+    }));
 
     console.log('Scene 2 Data:', data);
 

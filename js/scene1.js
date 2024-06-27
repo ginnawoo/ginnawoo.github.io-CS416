@@ -5,12 +5,11 @@ function loadScene1() {
         .attr("width", 800)
         .attr("height", 600);
 
-    const data = [
-        { category: "Total Deaths", value: 12303828 },
-        { category: "COVID-19 Deaths", value: 1146687 },
-        { category: "Pneumonia Deaths", value: 1162833 },
-        { category: "Influenza Deaths", value: 22226 }
-    ];
+    // Filter the data for the necessary fields
+    const data = window.covidData.map(d => ({
+        category: d["Race and Hispanic Origin Group"],
+        value: +d["COVID-19 Deaths"]
+    }));
 
     console.log('Scene 1 Data:', data);
 
@@ -47,8 +46,7 @@ function loadScene1() {
 
     // Add annotations
     const annotations = [
-        { note: { label: "Total deaths in the dataset", title: "Total Deaths" }, x: 100, y: 100 },
-        { note: { label: "Deaths due to COVID-19", title: "COVID-19 Deaths" }, x: 300, y: 300 }
+        { note: { label: "COVID-19 deaths by race", title: "COVID-19 Deaths" }, x: 400, y: 100 }
     ];
 
     const makeAnnotations = d3.annotation()

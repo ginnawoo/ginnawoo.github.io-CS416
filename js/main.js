@@ -3,12 +3,16 @@ let currentScene = 1;
 function loadScene(sceneNumber) {
     console.log('Loading scene:', sceneNumber);
     d3.select("#scene").html(""); // Clear current scene
-    if (sceneNumber === 1) {
-        loadScene1();
-    } else if (sceneNumber === 2) {
-        loadScene2();
-    } else if (sceneNumber === 3) {
-        loadScene3();
+    if (window.covidData) {
+        if (sceneNumber === 1) {
+            loadScene1();
+        } else if (sceneNumber === 2) {
+            loadScene2();
+        } else if (sceneNumber === 3) {
+            loadScene3();
+        }
+    } else {
+        console.error('Data not loaded yet');
     }
 }
 
