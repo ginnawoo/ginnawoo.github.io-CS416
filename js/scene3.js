@@ -1,10 +1,10 @@
 function loadScene3() {
+    console.log('Loading Scene 3');
     const svg = d3.select("#scene")
         .append("svg")
         .attr("width", 800)
         .attr("height", 600);
 
-    // Mock data for demonstration (replace with actual data loading logic)
     const data = [
         { ageGroup: "0-17 years", deaths: 1000 },
         { ageGroup: "18-44 years", deaths: 100000 },
@@ -13,6 +13,8 @@ function loadScene3() {
         { ageGroup: "75-84 years", deaths: 500000 },
         { ageGroup: "85 years and over", deaths: 700000 }
     ];
+
+    console.log('Scene 3 Data:', data);
 
     const xScale = d3.scaleBand()
         .domain(data.map(d => d.ageGroup))

@@ -1,4 +1,5 @@
 function loadScene1() {
+    console.log('Loading Scene 1');
     const svg = d3.select("#scene")
         .append("svg")
         .attr("width", 800)
@@ -10,6 +11,8 @@ function loadScene1() {
         { category: "Pneumonia Deaths", value: 1162833 },
         { category: "Influenza Deaths", value: 22226 }
     ];
+
+    console.log('Scene 1 Data:', data);
 
     const xScale = d3.scaleBand()
         .domain(data.map(d => d.category))

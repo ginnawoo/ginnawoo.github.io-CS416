@@ -1,10 +1,10 @@
 function loadScene2() {
+    console.log('Loading Scene 2');
     const svg = d3.select("#scene")
         .append("svg")
         .attr("width", 800)
         .attr("height", 600);
 
-    // Mock data for demonstration (replace with actual data loading logic)
     const data = [
         { race: "White", deaths: 800000 },
         { race: "Black", deaths: 200000 },
@@ -12,6 +12,8 @@ function loadScene2() {
         { race: "Asian", deaths: 100000 },
         { race: "Other", deaths: 50000 }
     ];
+
+    console.log('Scene 2 Data:', data);
 
     const xScale = d3.scaleBand()
         .domain(data.map(d => d.race))
