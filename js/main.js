@@ -1,37 +1,23 @@
-let currentScene = 1;
+document.addEventListener('DOMContentLoaded', function () {
+    // Load data and initialize scenes
+    Promise.all([
+        d3.json('data/usa_states.geojson'),
+        d3.csv('data/Provisional_COVID-19_Deaths_by_Race_and_Hispanic_Origin__and_Age_20240524.csv')
+    ]).then(function (data) {
+        const [geoData, covidData] = data;
 
-function loadScene(sceneNumber) {
-    console.log('Loading scene:', sceneNumber);
-    d3.select("#scene").html(""); // Clear current scene
-    if (window.covidData) {
-        if (sceneNumber === 1) {
-            loadScene1();
-        } else if (sceneNumber === 2) {
-            loadScene2();
-        } else if (sceneNumber === 3) {
-            loadScene3();
-        }
-    } else {
-        console.error('Data not loaded yet');
-    }
+        // Initialize scenes
+        initScenes(geoData, covidData);
+
+        // Show the first scene
+        showScene(1);
+    });
+});
+
+function showScene(sceneNumber) {
+    // Hide all scenes
+    d3.selectAll('.scene').classed('active', false);
+
+    // Show the selected scene
+    d3.select(`#scene-${sceneNumber}`).classed('active', true);
 }
-
-function nextScene() {
-    currentScene = (currentScene % 3) + 1;
-    console.log('Next scene:', currentScene);
-    loadScene(currentScene);
-}
-
-function prevScene() {
-    currentScene = (currentScene - 2 + 3) % 3 + 1;
-    console.log('Previous scene:', currentScene);
-    loadScene(currentScene);
-}
-
-// Add navigation buttons
-document.getElementById('nextButton').addEventListener('click', nextScene);
-document.getElementById('prevButton').addEventListener('click', prevScene);
-
-// Load initial scene
-console.log('Initial scene:', currentScene);
-loadScene(currentScene);

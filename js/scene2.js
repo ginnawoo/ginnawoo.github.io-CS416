@@ -5,7 +5,6 @@ function loadScene2() {
         .attr("width", 800)
         .attr("height", 600);
 
-    // Filter the data for the necessary fields
     const data = window.covidData.map(d => ({
         race: d["Race and Hispanic Origin Group"],
         deaths: +d["COVID-19 Deaths"]
@@ -47,23 +46,35 @@ function loadScene2() {
     svg.append("g")
         .call(d3.axisLeft(yScale));
 
+    // Add axis labels
+    svg.append("text")
+        .attr("class", "axis-label")
+        .attr("text-anchor", "middle")
+        .attr("transform", "translate(400,630)")
+        .text("Race and Hispanic Origin Group");
+
+    svg.append("text")
+        .attr("class", "axis-label")
+        .attr("text-anchor", "middle")
+        .attr("transform", "translate(-50,300)rotate(-90)")
+        .text("COVID-19 Deaths");
+
+    // Add title
+    svg.append("text")
+        .attr("class", "title-text")
+        .attr("text-anchor", "middle")
+        .attr("transform", "translate(400,50)")
+        .text("Detailed View of COVID-19 Deaths by Race and Hispanic Origin Group");
+
     // Add annotations
     const annotations = [
-        { note: { label: "COVID-19 deaths by race and ethnicity", title: "Disparities in COVID-19 Deaths" }, x: 400, y: 100 }
+        { note: { label: "Significant disparity in death rates", title: "Observation" }, x: 400, y: 200 }
     ];
 
     const makeAnnotations = d3.annotation()
         .type(d3.annotationLabel)
-        .annotations(annotations)
-        .on('subjectover', function (annotation) {
-            annotation.type.a.selectAll('g.annotation-connector, g.annotation-note').classed('hidden', false);
-        })
-        .on('subjectout', function (annotation) {
-            annotation.type.a.selectAll('g.annotation-connector, g.annotation-note').classed('hidden', true);
-        });
+        .annotations(annotations);
 
     svg.append("g")
         .call(makeAnnotations);
-
-    svg.selectAll('g.annotation-connector, g.annotation-note').classed('hidden', true);
 }

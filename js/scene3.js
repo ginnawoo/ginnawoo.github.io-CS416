@@ -5,7 +5,6 @@ function loadScene3() {
         .attr("width", 800)
         .attr("height", 600);
 
-    // Filter the data for the necessary fields
     const data = window.covidData.map(d => ({
         ageGroup: d["Age group"],
         deaths: +d["COVID-19 Deaths"]
@@ -22,45 +21,60 @@ function loadScene3() {
         .domain([0, d3.max(data, d => d.deaths)])
         .range([600, 0]);
 
-    const line = d3.line()
-        .x(d => xScale(d.ageGroup))
-        .y(d => yScale(d.deaths));
-
-    svg.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 1.5)
-        .attr("d", line)
-        .attr("opacity", 0)
+    svg.selectAll(".bar")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("class", "bar")
+        .attr("x", d => xScale(d.ageGroup))
+        .attr("y", d => yScale(0))
+        .attr("width", xScale.bandwidth())
+        .attr("height", 0)
+        .attr("fill", "steelblue")
         .transition()
         .duration(800)
-        .attr("opacity", 1);
+        .attr("y", d => yScale(d.deaths))
+        .attr("height", d => 600 - yScale(d.deaths));
 
     svg.append("g")
         .attr("transform", "translate(0,600)")
-        .call(d3.axisBottom(xScale));
+        .call(d3.axisBottom(xScale))
+        .selectAll("text")
+        .attr("transform", "rotate(-45)")
+        .style("text-anchor", "end");
 
     svg.append("g")
         .call(d3.axisLeft(yScale));
 
+    // Add axis labels
+    svg.append("text")
+        .attr("class", "axis-label")
+        .attr("text-anchor", "middle")
+        .attr("transform", "translate(400,630)")
+        .text("Age Group");
+
+    svg.append("text")
+        .attr("class", "axis-label")
+        .attr("text-anchor", "middle")
+        .attr("transform", "translate(-50,300)rotate(-90)")
+        .text("COVID-19 Deaths");
+
+    // Add title
+    svg.append("text")
+        .attr("class", "title-text")
+        .attr("text-anchor", "middle")
+        .attr("transform", "translate(400,50)")
+        .text("COVID-19 Deaths by Age Group");
+
     // Add annotations
     const annotations = [
-        { note: { label: "COVID-19 deaths by age group", title: "Age Group Analysis" }, x: 400, y: 50 }
+        { note: { label: "Highest deaths in older age groups", title: "Key Observation" }, x: 400, y: 200 }
     ];
 
     const makeAnnotations = d3.annotation()
         .type(d3.annotationLabel)
-        .annotations(annotations)
-        .on('subjectover', function (annotation) {
-            annotation.type.a.selectAll('g.annotation-connector, g.annotation-note').classed('hidden', false);
-        })
-        .on('subjectout', function (annotation) {
-            annotation.type.a.selectAll('g.annotation-connector, g.annotation-note').classed('hidden', true);
-        });
+        .annotations(annotations);
 
     svg.append("g")
         .call(makeAnnotations);
-
-    svg.selectAll('g.annotation-connector, g.annotation-note').classed('hidden', true);
 }

@@ -4,32 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID-19 Impact Visualization</title>
+    <title>COVID-19 Narrative Visualization</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <div id="visualization-container">
-        <div id="scene"></div>
-    </div>
-    <div id="nav">
-        <button id="prevButton">Previous</button>
-        <button id="nextButton">Next</button>
-    </div>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <div id="visualization"></div>
+    <script src="js/d3.v6.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/scenes.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/scene1.js"></script>
-    <script src="js/scene2.js"></script>
-    <script src="js/scene3.js"></script>
-    <script>
-        d3.csv("data/Provisional_COVID-19_Deaths_by_Race_and_Hispanic_Origin__and_Age_20240524.csv").then(data => {
-            window.covidData = data;
-            console.log('CSV Data loaded', data);
-            loadScene(currentScene);
-        }).catch(error => {
-            console.error('Error loading CSV data:', error);
-        });
-    </script>
 </body>
 
 </html>
