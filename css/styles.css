@@ -1,66 +1,88 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+}
+
+#navigation {
+    margin: 20px;
+}
+
+#filter {
+    margin: 20px;
 }
 
 #visualization {
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    height: 600px;
 }
 
 .scene {
     display: none;
-    width: 100%;
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
 .scene.active {
     display: block;
 }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 6px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
-p {
-    font-size: 16px;
-    color: #666;
+.tooltip-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
-svg {
-    width: 100%;
-    height: 500px;
+.tooltip-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: flex;
+    align-items: center;
 }
 
-.axis path,
-.axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
+.tooltip-container p {
+    margin: 0;
+    padding: 0;
 }
 
-.axis text {
-    font-size: 12px;
-    fill: #333;
+.tooltip-instruction {
+    font-size: 14px;
+    color: grey;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.bar {
-    fill: steelblue;
+.data-source {
+    font-size: 10px;
+    color: grey;
+    margin-top: 10px;
+    text-align: center;
 }
 
-.bar:hover {
-    fill: orange;
+.analysis {
+    margin-top: 10px;
+    /* Adjust margin as needed */
+    margin-bottom: 30px;
+    /* Add space before the end of the page */
 }
