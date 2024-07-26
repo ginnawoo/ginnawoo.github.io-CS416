@@ -1,6 +1,6 @@
-# ginnawoo.github.io
-# NarrativeVisualization
-# CS416 Data Visualization 
+ginnawoo.github.io
+NarrativeVisualization
+CS416 Data Visualization 
 
 # Global Wealth Distribution: A Deep Dive into Billionaire Demographics and Industry Insights
 
