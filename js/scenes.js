@@ -229,6 +229,11 @@ function createScene2(data) {
     tooltipInstruction.append('img').attr('src', 'data/tooltip-icon.png').attr('class', 'tooltip-icon').attr('alt', 'Tooltip Icon');
     tooltipInstruction.append('p').text('Use the filters on the right to select specific industries and countries. Click "Apply Filters" to update the visualization based on your selections. Make sure deselect "ALL" checkbox before filtering. Simply click the "Reset" button to reset.');
 
+    // Tooltip instruction for chart with image
+    const barChartTooltipInstruction = scene.append('div').attr('class', 'tooltip-instruction');
+    barChartTooltipInstruction.append('img').attr('src', 'data/tooltip-icon.png').attr('class', 'tooltip-icon').attr('alt', 'Tooltip Icon');
+    barChartTooltipInstruction.append('p').text('Hover over the circles in the graph to get more insights.');
+
     const margin = { top: 100, right: 350, bottom: 50, left: 100 };
     const width = 1200 - margin.left - margin.right; // Increased width
     const height = 800 - margin.top - margin.bottom; // Increased height
@@ -396,6 +401,11 @@ function createScene3(data) {
     const tooltipInstruction = scene.append('div').attr('class', 'tooltip-instruction');
     tooltipInstruction.append('img').attr('src', 'data/tooltip-icon.png').attr('class', 'tooltip-icon').attr('alt', 'Tooltip Icon');
     tooltipInstruction.append('p').text('Use the filters on the right to select specific industries and countries. Click "Apply Filters" to update the visualization based on your selections. Make sure deselect "ALL" checkbox before filtering. Simply click the "Reset" button to reset.');
+
+    // Tooltip instruction for bar chart with image
+    const barChartTooltipInstruction = scene.append('div').attr('class', 'tooltip-instruction');
+    barChartTooltipInstruction.append('img').attr('src', 'data/tooltip-icon.png').attr('class', 'tooltip-icon').attr('alt', 'Tooltip Icon');
+    barChartTooltipInstruction.append('p').text('Hover over the bars in the graph to get more insights.');
 
     const margin = { top: 50, right: 100, bottom: 100, left: 60 }; // Increased bottom margin
     const width = 1200 - margin.left - margin.right;
