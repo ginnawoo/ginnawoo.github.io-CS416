@@ -1,3 +1,5 @@
+See the visualization: [ginnawoo.github.io](https://ginnawoo.github.io/)
+
 # Global Wealth Distribution: A Deep Dive into Billionaire Demographics and Industry Insights
 
 # Overview
