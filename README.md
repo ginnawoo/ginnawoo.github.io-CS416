@@ -1,7 +1,3 @@
-ginnawoo.github.io
-NarrativeVisualization
-CS416 Data Visualization 
-
 # Global Wealth Distribution: A Deep Dive into Billionaire Demographics and Industry Insights
 
 # Overview
@@ -18,18 +14,7 @@ This narrative visualization explores the trends and distribution of billionaire
 # Project Description
 
 ## Project Structure
-
-├── index.html
-├── css/
-│ └── styles.css
-├── js/
-│ ├── main.js
-│ ├── scene.js
-├── data/
-│ └── Billionaires Statistics Dataset.csv
-│ └── memeIcon.png
-│ └── tooltip-icon.png
-└── README.md
+![image](https://github.com/user-attachments/assets/38628525-a299-4a93-9077-27286cf25d16)
 
 The project is divided into three main scenes:
 
@@ -63,15 +48,9 @@ The data used in this project is sourced from the Kaggle [Billionaires Statistic
 - d3-annotation for annotations
 
 # Credits and Acknowledgements
-Extending my sincere gratitude to Professor John Hart + TAs for providing the opportunity to work on this project. The guidance and support throughout the course have been invaluable and have made this learning experience both enriching and enjoyable. Thank you for the insights and encouragement that have greatly contributed to the completion of this project.
+Extending my sincere gratitude to Professor John Hart + TAs for providing the opportunity to work on this project. The guidance and support throughout the course[^1] have been invaluable and have made this learning experience both enriching and enjoyable. Thank you for the insights and encouragement that have greatly contributed to the completion of this project.
 
-
-
-
-
-
-
-
+[^1]: NarrativeVisualization, CS416 Data Visualization 
 
 
 
