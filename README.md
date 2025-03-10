@@ -1,4 +1,4 @@
-See the visualization: [ginnawoo.github.io](https://ginnawoo.github.io-CS416/)
+See the visualization: [ginnawoo.github.io-CS416](https://ginnawoo.github.io-CS416/)
 
 # Global Wealth Distribution: A Deep Dive into Billionaire Demographics and Industry Insights
 
