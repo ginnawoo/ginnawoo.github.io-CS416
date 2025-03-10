@@ -1,4 +1,4 @@
-See the visualization: [ginnawoo.github.io](https://ginnawoo.github.io/)
+See the visualization: [ginnawoo.github.io](https://ginnawoo.github.io-CS416/)
 
 # Global Wealth Distribution: A Deep Dive into Billionaire Demographics and Industry Insights
 
@@ -37,7 +37,7 @@ The goal of this visual is to provide a comprehensive and interactive narrative 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/ginnawoo/ginnawoo.github.io.git
+   git clone https://github.com/ginnawoo/ginnawoo.github.io-CS416.git
    cd ginnawoo.github.io
    ```
 
